@@ -1,0 +1,14 @@
+2. Procedure
+3. Opened Command Prompt and verified Docker installation.
+4. Verified kubectl installation.
+5. Verified Minikube installation.
+6. Started Minikube using the Docker driver.
+7. Checked Minikube status and verified the Kubernetes node was in Ready state.
+8. Created a YAML file named nginx-pod.yaml using Notepad.
+9. Configured the Pod with the Nginx image and container port 80.
+10. Applied the YAML configuration using kubectl apply -f nginx-pod.yaml.
+11. Checked the Pod status using kubectl get pods.
+12. Displayed detailed Pod information using kubectl describe pod nginx-pod.
+13. Forwarded the Pod port to localhost using kubectl port-forward.
+14. Opened http://localhost:8081 in the browser and verified the Nginx Welcome page.
+15. Stopped port forwarding and deleted the Pod using kubectl delete pod nginx-pod.
