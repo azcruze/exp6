@@ -1,0 +1,74 @@
+OPEN DOCKER DESKTOP
+
+:: 1. Check Docker
+docker --version
+docker version
+
+:: 2. Check kubectl
+kubectl version --client
+
+:: 3. Check Minikube
+minikube version
+
+:: 4. Start Kubernetes cluster
+minikube start --driver=docker
+
+:: 5. Check cluster status
+minikube status
+kubectl get nodes
+
+:: 6. Create the Pod YAML file
+notepad nginx-pod.yaml
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+
+
+
+
+
+
+
+
+cmd))
+
+
+
+:: 7. Create the Pod
+kubectl apply -f nginx-pod.yaml
+
+:: 8. Check the Pod
+kubectl get pods
+
+:: 9. Get detailed Pod information
+kubectl describe pod nginx-pod
+
+:: 10. Forward the Pod port
+kubectl port-forward pod/nginx-pod 8081:80
+
+
+
+
+http://localhost:8081
+
+
+You should see the NGINX welcome page.
+
+After testing, return to CMD and press Ctrl + C to stop port forwarding. Then run:
+
+:: 11. Delete the Pod
+kubectl delete pod nginx-pod
+
+:: 12. Verify Pod deletion
+kubectl get pods
+
+        
