@@ -1,4 +1,7 @@
 Experiment 6 – Manage Kubernetes Resources Using CLI
+
+OPEN DOCKER ON DEKSTOP AND KEEP 
+
 1. Commands Used
 Step 1: Verify Docker
 docker --version
