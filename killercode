@@ -1,0 +1,68 @@
+steeep 1:Check Kubernetes nodes
+kubectl get nodes
+
+step2: Check Kubernetes nodes
+cat <<EOF > nginx-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+EOF
+
+
+Step 3 – Create the Pod
+kubectl apply -f nginx-pod.yaml
+
+
+Step 4 – Check the Pod
+kubectl get pods
+
+Step 5 – Describe the Pod
+kubectl describe pod nginx-pod
+
+
+Step 6 – Start port forwarding
+kubectl port-forward --address 0.0.0.0 pod/nginx-pod 8081:80
+
+Expected output:
+Forwarding from 0.0.0.0:8081 -> 80
+
+
+Step 7 – Open the NGINX website
+
+Keep the terminal running. In Killercoda:
+1. Open Traffic Port Accessor.
+2. Select Host 1.
+3. Select Custom Ports.
+4. Enter port 8081.
+5. Open the generated HTTP URL.
+You should see the NGINX Welcome page.
+
+Step 8 – Stop port forwarding
+
+Press Ctrl + C.
+
+Step 9 – Delete the Pod
+kubectl delete pod nginx-pod
+
+
+
+Step 10 – Verify deletion
+kubectl get pods
+
+
+Expected output:
+No resources found in default namespace.
+
+
+
+Result: The Kubernetes cluster was accessed using kubectl.
+An NGINX Pod was created, inspected, accessed through Killercoda Traffic Port 
+Accessor using port forwarding, and successfully deleted.
+
